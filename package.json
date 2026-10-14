@@ -1,0 +1,13 @@
+{
+    "name": "cookit",
+    "version": "1.0.0",
+    "private": true,
+    "description": "FH-Rezeptverwaltung mit optionalen manuellen Nährwerten",
+    "scripts": {
+        "start": "node server.js",
+        "test": "node --test test.js"
+    },
+    "engines": {
+        "node": ">=18"
+    }
+}
