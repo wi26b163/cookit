@@ -102,3 +102,5 @@ GitHub workflow test.
 Push auf GitHub -> Push testen.
 
 Branch erstellen und Pull testen -> Pull testen.
+
+Pull von Github
