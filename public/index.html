@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="de">
+    <!-- Dokumentkopf: Titel, Zeichensatz und Stylesheet -->
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>CookIt · Rezeptsammlung</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- Seitenleiste: Navigation und Darstellung -->
+        <aside>
+            <a class="brand" href="/">
+                Cook
+                <span>It</span>
+                <small>DEINE REZEPTWERKSTATT</small>
+            </a>
+            <nav>
+                <button class="nav active" id="recipesNav">▦ Rezeptsammlung</button>
+                <button class="nav" id="optimizerNav">◉ Mahlzeiten-Optimierer</button>
+            </nav>
+            <div class="asidebottom">
+                <label>
+                    Darstellung
+                    <select id="theme">
+                        <option value="light">Hell</option>
+                        <option value="dark">Dunkel</option>
+                    </select>
+                </label>
+                <label>
+                    Schriftgröße
+                    <select id="font">
+                        <option value="16">Standard</option>
+                        <option value="18">Groß</option>
+                        <option value="20">Sehr groß</option>
+                    </select>
+                </label>
+                <p>
+                    CookIt · FH-Projekt
+                    <br />
+                    Rezepte. Portionen. Überblick.
+                </p>
+            </div>
+        </aside>
+        <main>
+            <!-- Rezeptsammlung: Suche, Filter und Rezeptkarten -->
+            <section id="collection">
+                <header>
+                    <div>
+                        <p class="eyebrow">ALLES AN EINEM ORT</p>
+                        <h1>
+                            Deine Rezeptsammlung
+                            <span>.</span>
+                        </h1>
+                        <p>Lieblingsgerichte sammeln und passend portionieren.</p>
+                    </div>
+                    <button class="primary" id="newRecipe">+ Rezept anlegen</button>
+                </header>
+                <div class="stats" id="stats"></div>
+                <div class="toolbar">
+                    <input
+                        id="search"
+                        type="search"
+                        placeholder="Rezept oder Zutat suchen …"
+                        aria-label="Rezept oder Zutat suchen"
+                    />
+                    <select id="diet" aria-label="Ernährungsart">
+                        <option value="">Alle Ernährungsarten</option>
+                        <option>Vegetarisch</option>
+                        <option>Vegan</option>
+                        <option>Fleisch</option>
+                        <option>Fisch</option>
+                    </select>
+                    <select id="exclude" aria-label="Allergen ausschließen">
+                        <option value="">Allergen ausschließen</option>
+                    </select>
+                    <select id="sort" aria-label="Sortieren">
+                        <option value="new">Neueste zuerst</option>
+                        <option value="old">Älteste zuerst</option>
+                        <option value="kcal-up">Kalorien aufsteigend</option>
+                        <option value="kcal-down">Kalorien absteigend</option>
+                        <option value="protein-up">Protein aufsteigend</option>
+                        <option value="protein-down">Protein absteigend</option>
+                        <option value="carbs-up">Kohlenhydrate aufsteigend</option>
+                        <option value="carbs-down">Kohlenhydrate absteigend</option>
+                        <option value="fat-up">Fett aufsteigend</option>
+                        <option value="fat-down">Fett absteigend</option>
+                    </select>
+                    <label class="check">
+                        <input type="checkbox" id="favorites" />
+                        Nur Favoriten
+                    </label>
+                </div>
+                <p id="count" class="muted"></p>
+                <div id="grid" class="grid"></div>
+            </section>
+            <!-- Mahlzeiten-Optimierer: Ziele, konsumierte Mahlzeiten und Empfehlungen -->
+            <section id="optimizer" hidden>
+                <header>
+                    <div>
+                        <p class="eyebrow">DEIN TAG IM ÜBERBLICK</p>
+                        <h1>
+                            Was passt als Nächstes
+                            <span>?</span>
+                        </h1>
+                        <p>
+                            Vergleiche gespeicherte Gerichte mit deinen verbleibenden Tageszielen.
+                        </p>
+                    </div>
+                    <button type="button" id="resetOptimizer">Alle Eingaben zurücksetzen</button>
+                </header>
+                <div class="panel">
+                    <h2>Tagesziele</h2>
+                    <div id="targets" class="four"></div>
+                </div>
+                <div class="panel">
+                    <h2>Bereits gegessen</h2>
+                    <form id="mealForm">
+                        <div class="formrow">
+                            <select id="mealRecipe" aria-label="Mahlzeit auswählen"></select>
+                            <input
+                                id="mealPortions"
+                                aria-label="Portionen"
+                                type="number"
+                                min="0.1"
+                                step="0.1"
+                                value="1"
+                                required
+                            />
+                            <button class="primary">Hinzufügen</button>
+                        </div>
+                        <div id="manualMeal" hidden>
+                            <input
+                                id="mealName"
+                                placeholder="Name der Mahlzeit"
+                                aria-label="Name der Mahlzeit"
+                            />
+                            <div class="four" id="manualValues"></div>
+                        </div>
+                    </form>
+                    <div id="meals"></div>
+                </div>
+                <div id="balance" class="stats"></div>
+                <h2>Passende Gerichte</h2>
+                <p class="muted">
+                    Bewertet wird eine Portion anhand der relativen Abweichung von den vier
+                    Tageszielen. Nur Rezepte mit vollständigen Nährwerten werden verglichen.
+                </p>
+                <div id="recommendations" class="grid"></div>
+            </section>
+            <div id="message" role="status"></div>
+        </main>
+        <!-- Dialog: Rezept anzeigen und skalieren -->
+        <dialog id="detail"><div id="detailContent"></div></dialog>
+        <!-- Dialog: Rezept anlegen oder bearbeiten -->
+        <dialog id="editor">
+            <form id="recipeForm">
+                <div class="modalhead">
+                    <div>
+                        <p class="eyebrow">REZEPTWERKSTATT</p>
+                        <h2 id="editorTitle">Neues Rezept</h2>
+                    </div>
+                    <button type="button" class="close" id="closeEditor" aria-label="Schließen">
+                        ×
+                    </button>
+                </div>
+                <label>
+                    Rezeptname
+                    <input name="name" required maxlength="150" />
+                </label>
+                <div class="three">
+                    <label>
+                        Grundportionen
+                        <input
+                            name="base_portions"
+                            type="number"
+                            min="0.1"
+                            step="0.1"
+                            value="4"
+                            required
+                        />
+                    </label>
+                    <label>
+                        Ernährungsart
+                        <select name="diet_type">
+                            <option>Vegetarisch</option>
+                            <option>Vegan</option>
+                            <option>Fleisch</option>
+                            <option>Fisch</option>
+                        </select>
+                    </label>
+                    <label>
+                        Zeit in Minuten
+                        <input name="preparation_time" type="number" min="0" value="30" required />
+                    </label>
+                </div>
+                <h3>Zutaten & Allergene</h3>
+                <p class="muted">
+                    Mengen für die Grundportionen. Allergene aus der festen EU-Liste auswählen;
+                    Mehrfachauswahl möglich.
+                </p>
+                <div id="ingredientRows"></div>
+                <button type="button" id="addIngredient">+ Zutat hinzufügen</button>
+                <label>
+                    Zubereitung
+                    <textarea
+                        name="instructions"
+                        rows="4"
+                        placeholder="Arbeitsschritte, jeweils eine Zeile …"
+                    ></textarea>
+                </label>
+                <h3>
+                    Nährwerte pro Portion
+                    <span class="muted">· optional</span>
+                </h3>
+                <p class="muted">Manuell erfasste Werte. Leere Felder bleiben unbekannt.</p>
+                <div class="four" id="nutritionFields"></div>
+                <label class="check">
+                    <input type="checkbox" name="favorite" />
+                    Als Favorit speichern
+                </label>
+                <div class="actions">
+                    <button type="button" id="cancelEditor">Abbrechen</button>
+                    <button class="primary" id="saveRecipe">Rezept speichern</button>
+                </div>
+            </form>
+        </dialog>
+        <script src="catalog.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
