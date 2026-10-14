@@ -1,0 +1,248 @@
+[
+    {
+        "recipe_id": 1,
+        "name": "Spaghetti Bolognese",
+        "base_portions": 4,
+        "diet_type": "Fleisch",
+        "preparation_time": 35,
+        "created_at": "2026-09-23T12:00:00Z",
+        "favorite": true,
+        "instructions": "Zwiebel schneiden und anbraten.\nFaschiertes mitbraten, Tomaten hinzufügen und köcheln lassen.\nPasta kochen und mit der Sauce servieren.",
+        "ingredients": [
+            {
+                "ingredient_id": 1,
+                "name": "Spaghetti",
+                "amount": 400,
+                "unit": "g",
+                "allergens": [
+                    "Glutenhaltiges Getreide"
+                ]
+            },
+            {
+                "ingredient_id": 2,
+                "name": "Faschiertes",
+                "amount": 500,
+                "unit": "g",
+                "allergens": []
+            },
+            {
+                "ingredient_id": 3,
+                "name": "Passierte Tomaten",
+                "amount": 600,
+                "unit": "g",
+                "allergens": []
+            },
+            {
+                "ingredient_id": 4,
+                "name": "Zwiebel",
+                "amount": 150,
+                "unit": "g",
+                "allergens": []
+            }
+        ],
+        "nutrition": {
+            "kcal": 650,
+            "protein": 38,
+            "carbs": 75,
+            "fat": 20
+        }
+    },
+    {
+        "recipe_id": 2,
+        "name": "Gemüsecurry mit Reis",
+        "base_portions": 4,
+        "diet_type": "Vegan",
+        "preparation_time": 30,
+        "created_at": "2026-09-24T12:00:00Z",
+        "favorite": true,
+        "instructions": "Reis kochen.\nGemüse anbraten, Kokosmilch und Currygewürz hinzufügen.\nKöcheln lassen und servieren.",
+        "ingredients": [
+            {
+                "ingredient_id": 1,
+                "name": "Reis",
+                "amount": 300,
+                "unit": "g",
+                "allergens": []
+            },
+            {
+                "ingredient_id": 2,
+                "name": "Gemüsemix",
+                "amount": 800,
+                "unit": "g",
+                "allergens": []
+            },
+            {
+                "ingredient_id": 3,
+                "name": "Kokosmilch",
+                "amount": 400,
+                "unit": "ml",
+                "allergens": []
+            }
+        ],
+        "nutrition": {
+            "kcal": 500,
+            "protein": 18,
+            "carbs": 80,
+            "fat": 12
+        }
+    },
+    {
+        "recipe_id": 3,
+        "name": "Lachs mit Kartoffeln",
+        "base_portions": 4,
+        "diet_type": "Fisch",
+        "preparation_time": 40,
+        "created_at": "2026-09-25T12:00:00Z",
+        "favorite": false,
+        "instructions": "Kartoffeln garen.\nLachs würzen und braten.\nMit Kartoffeln servieren.",
+        "ingredients": [
+            {
+                "ingredient_id": 1,
+                "name": "Lachs",
+                "amount": 600,
+                "unit": "g",
+                "allergens": [
+                    "Fisch"
+                ]
+            },
+            {
+                "ingredient_id": 2,
+                "name": "Kartoffeln",
+                "amount": 800,
+                "unit": "g",
+                "allergens": []
+            },
+            {
+                "ingredient_id": 3,
+                "name": "Olivenöl",
+                "amount": 20,
+                "unit": "ml",
+                "allergens": []
+            }
+        ],
+        "nutrition": {
+            "kcal": 620,
+            "protein": 42,
+            "carbs": 50,
+            "fat": 25
+        }
+    },
+    {
+        "recipe_id": 4,
+        "name": "Protein-Porridge",
+        "base_portions": 4,
+        "diet_type": "Vegetarisch",
+        "preparation_time": 10,
+        "created_at": "2026-09-26T12:00:00Z",
+        "favorite": false,
+        "instructions": "Haferflocken mit Milch erhitzen.\nVom Herd nehmen und Protein-Pulver unterrühren.",
+        "ingredients": [
+            {
+                "ingredient_id": 1,
+                "name": "Haferflocken",
+                "amount": 200,
+                "unit": "g",
+                "allergens": [
+                    "Glutenhaltiges Getreide"
+                ]
+            },
+            {
+                "ingredient_id": 2,
+                "name": "Milch",
+                "amount": 800,
+                "unit": "ml",
+                "allergens": [
+                    "Milch (einschließlich Laktose)"
+                ]
+            },
+            {
+                "ingredient_id": 3,
+                "name": "Protein-Pulver",
+                "amount": 100,
+                "unit": "g",
+                "allergens": [
+                    "Milch (einschließlich Laktose)"
+                ]
+            }
+        ],
+        "nutrition": {
+            "kcal": 450,
+            "protein": 35,
+            "carbs": 55,
+            "fat": 10
+        }
+    },
+    {
+        "recipe_id": 5,
+        "name": "Linsen-Bowl",
+        "base_portions": 4,
+        "diet_type": "Vegan",
+        "preparation_time": 25,
+        "created_at": "2026-09-27T12:00:00Z",
+        "favorite": false,
+        "instructions": "Linsen garen.\nGemüse schneiden und braten.\nAlles in einer Schüssel anrichten.",
+        "ingredients": [
+            {
+                "ingredient_id": 1,
+                "name": "Linsen",
+                "amount": 300,
+                "unit": "g",
+                "allergens": []
+            },
+            {
+                "ingredient_id": 2,
+                "name": "Karotten",
+                "amount": 400,
+                "unit": "g",
+                "allergens": []
+            },
+            {
+                "ingredient_id": 3,
+                "name": "Zucchini",
+                "amount": 400,
+                "unit": "g",
+                "allergens": []
+            }
+        ],
+        "nutrition": {
+            "kcal": 470,
+            "protein": 25,
+            "carbs": 65,
+            "fat": 12
+        }
+    },
+    {
+        "recipe_id": 6,
+        "name": "Ofengemüse",
+        "base_portions": 4,
+        "diet_type": "Vegan",
+        "preparation_time": 35,
+        "created_at": "2026-09-28T12:00:00Z",
+        "favorite": false,
+        "instructions": "Gemüse schneiden und würzen.\nBei 200 °C im Ofen garen, bis es weich und gebräunt ist.",
+        "ingredients": [
+            {
+                "ingredient_id": 1,
+                "name": "Kartoffeln",
+                "amount": 600,
+                "unit": "g",
+                "allergens": []
+            },
+            {
+                "ingredient_id": 2,
+                "name": "Karotten",
+                "amount": 400,
+                "unit": "g",
+                "allergens": []
+            },
+            {
+                "ingredient_id": 3,
+                "name": "Zucchini",
+                "amount": 400,
+                "unit": "g",
+                "allergens": []
+            }
+        ],
+        "nutrition": null
+    }
+]
