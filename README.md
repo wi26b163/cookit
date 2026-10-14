@@ -95,3 +95,6 @@ Bestehende Rezepte in die .exe übernehmen:
 
 
 GitHub workflow test.
+
+
+Änderung auf GitHub -> Pull testen.
